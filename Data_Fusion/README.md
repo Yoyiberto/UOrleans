@@ -1,10 +1,10 @@
-# Data Fusion for Mobile Robot Localization (Kalman Filter)
+# Data Fusion for Mobile Robot Localization (Kalman Filer)
 
 This repository contains projects and exercises focused on state estimation and sensor fusion for localizing a mobile robot in a 2D environment. The primary technique explored is the **Extended Kalman Filter (EKF)**, applied to different sensor modalities and fusion architectures.
 
 ## Summary
 
-The core objective is to accurately estimate the robot's state, defined by its position `(x, y)` and its heading `θ`, by fusing data from various sensors. We use a simple unicycle kinematic model to predict the robot's motion and sensor measurements to correct this prediction. The non-linear nature of the measurement models necessitates the use of an Extended Kalman Filter (EKF) rather than a standard Kalman Filter.
+The core objective is to accurately estimate the robot's state, defined by its position $(x, y)$ and its heading $\theta$, by fusing data from various sensors. We use a simple unicycle kinematic model to predict the robot's motion and sensor measurements to correct this prediction. The non-linear nature of the measurement models necessitates the use of an Extended Kalman Filter (EKF) rather than a standard Kalman Filter.
 
 ---
 
@@ -22,7 +22,7 @@ To estimate the robot's 2D position and heading by fusing velocity commands with
 
 ### System Model
 
-The state of the robot at any time `k` is represented by the vector:
+The state of the robot at any time $k$ is represented by the vector:
 $$
 X_k = \begin{bmatrix} x_k \\ y_k \\ \theta_k \end{bmatrix}
 $$
@@ -42,9 +42,9 @@ X_{k+1} = f(X_k, u_k) = \begin{bmatrix} x_k + u_k \cos(\theta_k) \Delta t \\ y_k
 $$
 
 #### 2. Measurement Model (Output Equation)
-The sensor measures the distance from the robot $M(x, y)$ to three beacons $B_i(x_{b_i}, y_{b_i})$. The measurement vector $Z_k$ consists of these three distances:
+The sensor measures the distance from the robot $M(x,y)$ to three beacons $B_i(x_{b_i}, y_{b_i})$. The measurement vector $Z_k$ consists of these three distances:
 $$
-Z_k = \begin{bmatrix} d_1 \\ d_2 \\ d_3 \end{bmatrix} = h(X_k) = \begin{bmatrix} \sqrt{(x_k - x_{b_1})^2 + (y_k - y_{b_1})^2} \\ \sqrt{(x_k - x_{b_2})^2 + (y_k - y_{b_2})^2} \\ \sqrt{(x_k - x_{b_3})^2 + (y_k - y_{b_3})^2} \end{bmatrix}
+Z_k = h(X_k) = \begin{bmatrix} \sqrt{(x_k - x_{b_1})^2 + (y_k - y_{b_1})^2} \\ \sqrt{(x_k - x_{b_2})^2 + (y_k - y_{b_2})^2} \\ \sqrt{(x_k - x_{b_3})^2 + (y_k - y_{b_3})^2} \end{bmatrix}
 $$
 This equation is non-linear, which is why an EKF is required.
 
@@ -57,7 +57,7 @@ To robustly estimate the robot's position and orientation by implementing a **di
 
 ### Core Concepts
 *   **Multimodal Sensor Fusion:** Combining data from different types of sensors to achieve a more accurate and reliable state estimate than could be obtained from any single sensor.
-*   **Inertial Measurement Unit (IMU):** Measures the robot's orientation (heading `θ`).
+*   **Inertial Measurement Unit (IMU):** Measures the robot's orientation (heading $\theta$).
 *   **Angulation (Angle of Arrival):** Measures the angle at which signals from known beacons arrive at the robot.
 *   **Time Difference of Arrival (TDOA):** Measures the difference in distance to two beacons, which defines a hyperbola on which the robot must lie.
 *   **Distributed Filtering:** An architecture where each sensor runs its own local Kalman filter. The state estimates from these local filters are then sent to a central fusion center, which combines them to produce a final, global state estimate.
@@ -71,17 +71,17 @@ The evolution model is the same discrete-time model as in Project 1.
 We have three distinct measurement models, one for each sensor type.
 
 1.  **Type M (IMU):** Measures heading directly.
-    ```math
+    $$
     z_M = \theta
-    ```
+    $$
 2.  **Type B (Angulation):** Measures the angle $\alpha_l$ of an incoming signal from beacon $B_l(x_l, y_l)$.
-    ```math
+    $$
     z_B = \alpha_l = \arctan\left(\frac{y - y_l}{x - x_l}\right)
-    ```
+    $$
 3.  **Type T (TDOA):** Measures the difference in distance between the robot and two beacons, $B_i$ and $B_j$.
-    ```math
+    $$
     z_T = \Delta d_{(i,j)} = \sqrt{(x - x_i)^2 + (y - y_i)^2} - \sqrt{(x - x_j)^2 + (y - y_j)^2}
-    ```
+    $$
 
 ### Implementation: Distributed Filter & Asynchronous Data
 
