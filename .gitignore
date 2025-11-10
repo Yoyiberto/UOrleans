@@ -1,0 +1,23 @@
+*.pdf
+
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+
+#Archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+#Large media files (optional, remove if you need to track these)
+
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.wav
