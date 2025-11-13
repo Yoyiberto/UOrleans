@@ -21,3 +21,7 @@
 *.avi
 *.mp3
 *.wav
+
+# jupyter notebook checkpoints
+**/.ipynb_checkpoints/
+**/.virtual_documents/
