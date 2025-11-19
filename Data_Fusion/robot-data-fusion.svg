@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="200" height="150">
+  <defs>
+    <!-- Define animations -->
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+      @keyframes scan {
+        0% { transform: rotate(-45deg); }
+        50% { transform: rotate(45deg); }
+        100% { transform: rotate(-45deg); }
+      }
+      @keyframes dataFlowIn {
+        0% { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes fusionPulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 1; }
+      }
+      @keyframes moveRobot {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(5px); }
+      }
+      
+      .robot-body { animation: moveRobot 2s ease-in-out infinite; }
+      .tof-sensor { animation: pulse 2s ease-in-out infinite; }
+      .scan-line { animation: scan 2s linear infinite; transform-origin: 100px 80px; }
+      .data-flow-1 { animation: dataFlowIn 2s ease-in-out infinite; animation-delay: 0s; }
+      .data-flow-2 { animation: dataFlowIn 2s ease-in-out infinite; animation-delay: 0.4s; }
+      .data-flow-3 { animation: dataFlowIn 2s ease-in-out infinite; animation-delay: 0.8s; }
+      .fusion-core { animation: fusionPulse 2s ease-in-out infinite; transform-origin: 100px 85px; }
+    </style>
+    
+    <!-- Gradient for robot -->
+    <linearGradient id="robotGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E5C8A;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for fusion center -->
+    <radialGradient id="fusionGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:0.3" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="150" fill="#1a1a2e"/>
+  
+  <!-- Grid floor (perspective) -->
+  <g opacity="0.2">
+    <line x1="0" y1="120" x2="200" y2="120" stroke="#4A5568" stroke-width="0.5"/>
+    <line x1="0" y1="130" x2="200" y2="130" stroke="#4A5568" stroke-width="0.5"/>
+    <line x1="0" y1="140" x2="200" y2="140" stroke="#4A5568" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Robot group -->
+  <g class="robot-body">
+    <!-- Robot base -->
+    <rect x="60" y="70" width="80" height="50" rx="8" fill="url(#robotGradient)" stroke="#333" stroke-width="1.5"/>
+    
+    <!-- Wheels -->
+    <circle cx="70" cy="123" r="5" fill="#333" stroke="#555" stroke-width="1"/>
+    <circle cx="130" cy="123" r="5" fill="#333" stroke="#555" stroke-width="1"/>
+    
+    <!-- Robot window/display -->
+    <rect x="70" y="78" width="60" height="35" rx="3" fill="#0D1B2A" opacity="0.3"/>
+    
+    <!-- Fusion Core (INSIDE robot) -->
+    <g class="fusion-core">
+      <circle cx="100" cy="85" r="8" fill="url(#fusionGradient)" opacity="0.9"/>
+      <circle cx="100" cy="85" r="6" fill="none" stroke="#FFD700" stroke-width="0.8" opacity="0.6"/>
+      <text x="100" y="88" font-family="Arial, sans-serif" font-size="5" fill="#1a1a2e" text-anchor="middle" font-weight="bold">CPU</text>
+    </g>
+    
+    <!-- ToF Sensor indicators (front) -->
+    <circle class="tof-sensor" cx="70" cy="68" r="2.5" fill="#00FF88" opacity="0.7"/>
+    <circle class="tof-sensor" cx="100" cy="68" r="2.5" fill="#00FF88" opacity="0.7"/>
+    <circle class="tof-sensor" cx="130" cy="68" r="2.5" fill="#00FF88" opacity="0.7"/>
+    
+    <!-- Sensor scanning arc -->
+    <path class="scan-line" d="M 100 70 L 90 55 A 15 15 0 0 1 110 55 Z" 
+          fill="#00FF88" opacity="0.15" stroke="#00FF88" stroke-width="0.5"/>
+    
+    <!-- Odometry sensor (wheel encoder) indicators -->
+    <circle cx="70" cy="123" r="2" fill="#FF6B6B" opacity="0.9"/>
+    <circle cx="130" cy="123" r="2" fill="#FF6B6B" opacity="0.9"/>
+    
+    <!-- IMU indicator (center bottom) -->
+    <rect x="96" cy="108" width="8" height="4" rx="1" fill="#9B59B6" opacity="0.8"/>
+    
+    <!-- Data flow lines INSIDE robot -->
+    <g class="data-flow-1">
+      <line x1="100" y1="68" x2="100" y2="77" stroke="#00FF88" stroke-width="1" opacity="0.6"/>
+      <circle cx="100" cy="72" r="1" fill="#00FF88"/>
+    </g>
+    
+    <g class="data-flow-2">
+      <line x1="70" y1="118" x2="95" y2="90" stroke="#FF6B6B" stroke-width="0.8" opacity="0.6"/>
+      <line x1="130" y1="118" x2="105" y2="90" stroke="#FF6B6B" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="80" cy="104" r="1" fill="#FF6B6B"/>
+      <circle cx="120" cy="104" r="1" fill="#FF6B6B"/>
+    </g>
+    
+    <g class="data-flow-3">
+      <line x1="100" y1="108" x2="100" y2="93" stroke="#9B59B6" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="100" cy="100" r="1" fill="#9B59B6"/>
+    </g>
+  </g>
+  
+  <!-- Sensor labels -->
+  <g font-family="Arial, sans-serif" font-size="7" fill="#E0E0E0">
+    <!-- ToF label -->
+    <text x="100" y="50" fill="#00FF88" text-anchor="middle">ToF</text>
+    
+    <!-- Odometry label -->
+    <text x="30" y="125" fill="#FF6B6B">Odom</text>
+    
+    <!-- IMU label -->
+    <text x="160" y="115" fill="#9B59B6">IMU</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="100" y="15" font-family="Arial, sans-serif" font-size="10" fill="#E0E0E0" text-anchor="middle" font-weight="bold">
+    Robot Data Fusion
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="100" y="28" font-family="Arial, sans-serif" font-size="6" fill="#A0A0A0" text-anchor="middle">
+    Internal Sensor Processing
+  </text>
+</svg>
