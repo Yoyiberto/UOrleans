@@ -1,0 +1,22 @@
+# 5 create a new person (id/sick assigned by server, Location header visible with -v)
+http -v POST :5000/followed firstname="Alice" lastname="Durand" tel="0123456789"
+
+# 6 Location header is echoed in the verbose POST response above (use it to find the new id)
+
+# 7 switch the new person to sick via JSON PATCH
+http -v PATCH :5000/followed/4 sick:=true
+
+# 8 update the person via form-encoded PUT (firstname, lastname, tel required)
+http --form PUT :5000/followed/4 firstname="Al" lastname="Fran" tel="00"
+
+# 9 inspect #1 contacts
+http GET :5000/followed/1/contacts
+
+# 10 add bidirectional link between #1 and #4, then re-check #1
+http POST :5000/followed/1/contacts contid:=4
+http POST :5000/followed/4/contacts contid:=1
+http GET :5000/followed/1/contacts
+
+# 11 delete the reciprocal links afterwards
+http DELETE :5000/followed/1/contacts/4
+http DELETE :5000/followed/4/contacts/1
