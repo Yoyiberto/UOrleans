@@ -1,0 +1,616 @@
+Model {
+  Name			  "Tools"
+  Version		  5.0
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ExecutionOrder	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Thu Jan 29 09:46:36 2004"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Utilisateur"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Wed Jun 13 14:43:03 2007"
+  ModelVersionFormat	  "1.%<AutoIncrement:13>"
+  ConfigurationManager	  "None"
+  SimParamPage		  "Solver"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  RTWExpressionDepthLimit 5
+  SimulationMode	  "normal"
+  Solver		  "ode45"
+  SolverMode		  "Auto"
+  StartTime		  "0.0"
+  StopTime		  "10.0"
+  MaxOrder		  5
+  MaxStep		  "auto"
+  MinStep		  "auto"
+  MaxNumMinSteps	  "-1"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  RelTol		  "1e-3"
+  AbsTol		  "auto"
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  Refine		  "1"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Array"
+  Decimation		  "1"
+  LimitDataPoints	  on
+  MaxDataPoints		  "1000"
+  SignalLoggingName	  "sigsOut"
+  ConsistencyChecking	  "none"
+  ArrayBoundsChecking	  "none"
+  AlgebraicLoopMsg	  "warning"
+  BlockPriorityViolationMsg "warning"
+  MinStepSizeMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  DiscreteInheritContinuousMsg "warning"
+  MultiTaskRateTransMsg	  "error"
+  SingleTaskRateTransMsg  "none"
+  CheckForMatrixSingularity "none"
+  IntegerOverflowMsg	  "warning"
+  Int32ToFloatConvMsg	  "warning"
+  ParameterDowncastMsg	  "error"
+  ParameterOverflowMsg	  "error"
+  ParameterPrecisionLossMsg "warning"
+  UnderSpecifiedDataTypeMsg "none"
+  UnnecessaryDatatypeConvMsg "none"
+  VectorMatrixConversionMsg "none"
+  InvalidFcnCallConnMsg	  "error"
+  SignalLabelMismatchMsg  "none"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  SfunCompatibilityCheckMsg "none"
+  RTWInlineParameters	  off
+  BlockReductionOpt	  on
+  BooleanDataType	  on
+  ConditionallyExecuteInputs on
+  ParameterPooling	  on
+  OptimizeBlockIOStorage  on
+  ZeroCross		  on
+  AssertionControl	  "UseLocalSettings"
+  ProdHWDeviceType	  "Microprocessor"
+  ProdHWWordLengths	  "8,16,32,32"
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  RTWRetainRTWFile	  off
+  TLCProfiler		  off
+  TLCDebug		  off
+  TLCCoverage		  off
+  TLCAssertion		  off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      ShowAdditionalParam     off
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "sfix(16)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      ShowAdditionalParam     off
+      LatchInput	      off
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Lookup
+      InputValues	      "[-4:5]"
+      OutputValues	      " rand(1,10)-0.5"
+      ShowAdditionalParam     off
+      LookUpMeth	      "Interpolation-Extrapolation"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Lookup2D
+      RowIndex		      "[0 1]"
+      ColumnIndex	      "[0 1]"
+      OutputValues	      "[0 0;0 0]"
+      ShowAdditionalParam     off
+      LookUpMeth	      "Interpolation-Extrapolation"
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "Tools"
+    Location		    [52, 172, 973, 625]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Mapping"
+      Ports		      []
+      Position		      [105, 43, 291, 271]
+      BackgroundColor	      "[1.000000, 0.501961, 0.501961]"
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      FontWeight	      "bold"
+      TreatAsAtomicUnit	      off
+      MaskDisplay	      "disp('CARTOGRAPHIES')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Mapping"
+	Location		[6, 132, 878, 639]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"192"
+	Block {
+	  BlockType		  Lookup2D
+	  Name			  "Inlet Nv\nLookup Table"
+	  Position		  [330, 150, 405, 230]
+	  RowIndex		  "Ne_remp"
+	  ColumnIndex		  "Pcol_remp"
+	  OutputValues		  "nv_remp"
+	}
+	Block {
+	  BlockType		  Lookup2D
+	  Name			  "Optimal Spark\nLookupTable"
+	  Position		  [335, 24, 400, 86]
+	  RowIndex		  "Ne_remp"
+	  ColumnIndex		  "Pcol_remp"
+	  OutputValues		  "AAopti"
+	}
+	Block {
+	  BlockType		  Lookup2D
+	  Name			  "Optimal Torque\nPMI LookupTable"
+	  Position		  [85, 24, 150, 86]
+	  RowIndex		  "Ne_remp"
+	  ColumnIndex		  "Pcol_remp"
+	  OutputValues		  "Copti"
+	}
+	Block {
+	  BlockType		  Lookup
+	  Name			  "spark advance\nefficiency"
+	  Position		  [110, 175, 140, 205]
+	  InputValues		  "vect_delta_AA"
+	  OutputValues		  "table_rdt_AA"
+	}
+	Annotation {
+	  Name			  "Speed"
+	  Position		  [53, 38]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+	Annotation {
+	  Name			  "Speed"
+	  Position		  [303, 43]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+	Annotation {
+	  Name			  "Spark Advance \n[deg]"
+	  Position		  [53, 193]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+	Annotation {
+	  Name			  "Man Pressure"
+	  Position		  [38, 73]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+	Annotation {
+	  Name			  "Man Pressure"
+	  Position		  [288, 78]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+	Annotation {
+	  Name			  "Speed"
+	  Position		  [298, 173]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+	Annotation {
+	  Name			  "Man Pressure"
+	  Position		  [283, 208]
+	  FontName		  "Arial"
+	  FontSize		  11
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Physical Tools"
+      Ports		      []
+      Position		      [450, 49, 631, 275]
+      BackgroundColor	      "[1.000000, 1.000000, 0.501961]"
+      ShowName		      off
+      FontName		      "Arial"
+      FontSize		      14
+      FontWeight	      "bold"
+      TreatAsAtomicUnit	      off
+      MaskDisplay	      "disp('PHYSICAL TOOLS')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Physical Tools"
+	Location		[75, 197, 577, 572]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Compressible\nFlow\nEquation"
+	  Ports			  [1, 2]
+	  Position		  [80, 29, 415, 196]
+	  TreatAsAtomicUnit	  off
+	  System {
+	    Name		    "Compressible\nFlow\nEquation"
+	    Location		    [117, 311, 1006, 626]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Manifold\nPressure"
+	      Position		      [30, 75, 50, 95]
+	      ForegroundColor	      "blue"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Ambiant Pressure"
+	      Position		      [35, 135, 65, 165]
+	      Value		      "Pamb"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Ambiant Temperature"
+	      Position		      [40, 220, 70, 250]
+	      Value		      "Tamb"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "CFE Constant\n"
+	      Position		      [445, 231, 580, 269]
+	      Value		      "sqrt(2*gam/(Rair*(gam-1)))"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn"
+	      Position		      [285, 70, 350, 130]
+	      Expr		      "u[1]/u[2]"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn1"
+	      Position		      [360, 184, 430, 216]
+	      Expr		      "1/sqrt(u[1])"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Fcn2"
+	      Position		      [450, 79, 620, 121]
+	      Expr		      "sqrt(u[1]^(2/gam)-u[1]^((gam+1)/gam))"
+	    }
+	    Block {
+	      BlockType		      Mux
+	      Name		      "Mux"
+	      Ports		      [2, 1]
+	      Position		      [220, 72, 225, 123]
+	      BackgroundColor	      "black"
+	      ShowName		      off
+	      Inputs		      "2"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      Ports		      [4, 1]
+	      Position		      [670, 72, 680, 278]
+	      ShowName		      off
+	      Inputs		      "4"
+	    }
+	    Block {
+	      BlockType		      Saturate
+	      Name		      "Saturation"
+	      Position		      [380, 84, 415, 116]
+	      UpperLimit	      "1"
+	      LowerLimit	      "PRcrit"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Fux : Air Intake\nMass Flow"
+	      Position		      [780, 165, 800, 185]
+	      ForegroundColor	      "red"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Air Intake\nTemperature"
+	      Position		      [205, 225, 225, 245]
+	      ForegroundColor	      "red"
+	      Port		      "2"
+	    }
+	    Line {
+	      SrcBlock		      "Ambiant Pressure"
+	      SrcPort		      1
+	      Points		      [120, 0]
+	      Branch {
+		DstBlock		"Product"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, -40]
+		DstBlock		"Mux"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      DstBlock		      "Fux : Air Intake\nMass Flow"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "CFE Constant\n"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Fcn2"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Saturation"
+	      SrcPort		      1
+	      DstBlock		      "Fcn2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Fcn1"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Fcn"
+	      SrcPort		      1
+	      DstBlock		      "Saturation"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      DstBlock		      "Fcn"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Manifold\nPressure"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Ambiant Temperature"
+	      SrcPort		      1
+	      Points		      [60, 0]
+	      Branch {
+		Points			[0, -35]
+		DstBlock		"Fcn1"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Air Intake\nTemperature"
+		DstPort			1
+	      }
+	    }
+	    Annotation {
+	      Name		      "COMPRESSIBLE FLOW EQUATION"
+	      Position		      [704, 26]
+	      DropShadow	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	    }
+	    Annotation {
+	      Name		      "Pa"
+	      Position		      [131, 140]
+	      BackgroundColor	      "lightBlue"
+	    }
+	    Annotation {
+	      Name		      "kg/m2/s"
+	      Position		      [729, 163]
+	      BackgroundColor	      "orange"
+	    }
+	  }
+	}
+      }
+    }
+  }
+}
