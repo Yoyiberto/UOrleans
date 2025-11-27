@@ -1,0 +1,3 @@
+# Requirements for SVG to UR5 script conversion
+numpy>=1.20.0
+svg.path>=6.0

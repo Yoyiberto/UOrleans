@@ -1,0 +1,38 @@
+def mandala_flower():
+    # Center of the drawing (adjust XYZ)
+    pose_m = get_actual_tcp_pose()
+    x_c = pose_m[0]
+    y_c = pose_m[1]
+    z_c = pose_m[2]
+
+    # Parameters
+    R0 = 0.03
+    petals = 8
+    loops = 2
+    v = 0.05
+    a = 0.3
+
+    # Orientation from current TCP
+    pose0 = get_actual_tcp_pose()
+    rx = pose0[3]
+    ry = pose0[4]
+    rz = pose0[5]
+
+    j = 0
+    while j < loops:
+        i = 0
+        while i < 360:
+            angle = i * 3.14159 / 180
+            r = R0 * (1 + sin(petals * angle)) * (1 + 0.1 * j)
+            x = x_c + r * cos(angle)
+            y = y_c + r * sin(angle)
+            z = z_c
+            movel(p[x, y, z, rx, ry, rz], a, v)
+            i = i + 5
+        end
+        R0 = R0 + 0.01
+        j = j + 1
+    end
+end
+
+mandala_flower()

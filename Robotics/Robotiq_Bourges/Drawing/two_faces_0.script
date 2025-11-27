@@ -1,0 +1,158 @@
+def two_faces_clean():
+
+  # --- Read current TCP as reference (center between faces) ---
+  pose0 = get_actual_tcp_pose()
+
+  global x_c = pose0[0]
+  global y_c = pose0[1]
+  global z0  = pose0[2]
+  global rx  = pose0[3]
+  global ry  = pose0[4]
+  global rz  = pose0[5]
+
+  # --- Drawing parameters ---
+  global a = 0.30        # acceleration (m/s^2)
+  global v = 0.05        # speed (m/s)
+  global lift = 0.01     # 1 cm lift between strokes
+  r_face = 0.04   # 8 cm face radius
+  spacing = 0.12  # 12 cm between face centers
+
+  # --- Helper variables ---
+  global x_cur = x_c
+  global y_cur = y_c
+
+  # --- Helper functions ---
+  def go_xy_up(x, y):
+    global x_cur = x
+    global y_cur = y
+    movel(p[x, y, z0 + lift, rx, ry, rz], a, v)
+  end
+
+  def go_xy_draw(x, y):
+    global x_cur = x
+    global y_cur = y
+    movel(p[x, y, z0, rx, ry, rz], a, v)
+  end
+
+  def pen_up():
+    movel(p[x_cur, y_cur, z0 + lift, rx, ry, rz], a, v)
+  end
+
+  def pen_down():
+    movel(p[x_cur, y_cur, z0, rx, ry, rz], a, v)
+  end
+
+  def draw_arc(cx, cy, r, deg_start, deg_end, step):
+    i = deg_start
+    while i <= deg_end:
+      ang = i * 3.14159 / 180
+      x = cx + r * cos(ang)
+      y = cy + r * sin(ang)
+      go_xy_draw(x, y)
+      i = i + step
+    end
+  end
+
+  def stroke(x1, y1, x2, y2):
+    go_xy_up(x1, y1)
+    pen_down()
+    go_xy_draw(x2, y2)
+    pen_up()
+  end
+
+  def draw_circle(cx, cy, r, step):
+    go_xy_up(cx + r, cy)
+    pen_down()
+    draw_arc(cx, cy, r, 0, 360, step)
+    pen_up()
+  end
+
+  # =====================================================
+  # =============== FACE 1 (HAPPY WITH HAT) =============
+  # =====================================================
+
+  x1 = x_c - spacing/2
+  y1 = y_c
+
+  # Face outline
+  draw_circle(x1, y1, r_face, 5)
+
+  # Hat
+  stroke(x1 - 0.05, y1 + r_face*0.85, x1 + 0.05, y1 + r_face*0.85)
+  stroke(x1 - 0.035, y1 + r_face*0.85, x1 - 0.035, y1 + r_face*1.30)
+  stroke(x1 + 0.035, y1 + r_face*0.85, x1 + 0.035, y1 + r_face*1.30)
+  stroke(x1 - 0.035, y1 + r_face*1.30, x1 + 0.035, y1 + r_face*1.30)
+
+  # Sunglasses
+  draw_circle(x1 - 0.018, y1 + 0.010, 0.010, 10)
+  draw_circle(x1 + 0.018, y1 + 0.010, 0.010, 10)
+  stroke(x1 - 0.008, y1 + 0.010, x1 + 0.008, y1 + 0.010)
+  stroke(x1 - 0.028, y1 + 0.010, x1 - 0.045, y1 + 0.012)
+  stroke(x1 + 0.028, y1 + 0.010, x1 + 0.045, y1 + 0.012)
+
+  # Nose
+  stroke(x1, y1 - 0.005, x1, y1 - 0.015)
+
+  # Smile
+  go_xy_up(x1 + 0.020, y1 - 0.010)
+  pen_down()
+  draw_arc(x1, y1 - 0.010, 0.020, 200, 340, 5)
+  pen_up()
+
+  # =====================================================
+  # ============ FACE 2 (DRAMATIC WITH CURLS) ===========
+  # =====================================================
+
+  x2 = x_c + spacing/2
+  y2 = y_c
+
+  # Face outline
+  draw_circle(x2, y2, r_face, 5)
+
+  # Curly hair (wavy top)
+  i = -90
+  while i <= 90:
+    ang = i * 3.14159 / 180
+    r = r_face + 0.010 * sin(4*ang)
+    x = x2 + r * cos(ang)
+    y = y2 + r * sin(ang)
+    if i == -90:
+      go_xy_up(x, y)
+      pen_down()
+    else:
+      go_xy_draw(x, y)
+    end
+    i = i + 5
+  end
+  pen_up()
+
+  # Eyebrows
+  stroke(x2 - 0.030, y2 + 0.020, x2 - 0.010, y2 + 0.015)
+  stroke(x2 + 0.010, y2 + 0.015, x2 + 0.030, y2 + 0.020)
+
+  # Eyes
+  stroke(x2 - 0.020, y2 + 0.008, x2 - 0.010, y2 + 0.008)
+  stroke(x2 + 0.010, y2 + 0.008, x2 + 0.020, y2 + 0.008)
+
+  # Nose (small hook)
+  go_xy_up(x2, y2 - 0.004)
+  pen_down()
+  draw_arc(x2 - 0.003, y2 - 0.010, 0.006, 300, 360, 5)
+  pen_up()
+
+  # Frown
+  go_xy_up(x2 - 0.020, y2 - 0.010)
+  pen_down()
+  draw_arc(x2, y2 - 0.010, 0.020, 20, 160, 5)
+  pen_up()
+
+  # Tear
+  draw_circle(x2 - 0.017, y2 - 0.005, 0.004, 15)
+
+  # Shirt collar
+  stroke(x2 - 0.020, y2 - r_face*0.85, x2, y2 - r_face*0.65)
+  stroke(x2 + 0.020, y2 - r_face*0.85, x2, y2 - r_face*0.65)
+
+end
+
+two_faces_clean()

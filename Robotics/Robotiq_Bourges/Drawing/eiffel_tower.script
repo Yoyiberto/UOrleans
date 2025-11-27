@@ -1,0 +1,39 @@
+def eiffel_tower_flat():
+    pose0 = get_actual_tcp_pose()
+    x_c = pose0[0]
+    y_c = pose0[1]
+    z_c = pose0[2]
+    rx  = pose0[3]
+    ry  = pose0[4]
+    rz  = pose0[5]
+
+    a = 0.3
+    v = 0.05
+    h = 0.10     # total half-height (0.20 m tall)
+    w = 0.06     # half base width (0.12 m wide)
+    mid = 0.03   # half width at mid-level
+    top = 0.005  # half width at top
+
+    # --- Start at left base ---
+    movel(p[x_c - w, y_c, z_c, rx, ry, rz], a, v)
+
+    # --- Left leg up (toward +Y) ---
+    movel(p[x_c - mid, y_c + h*0.5, z_c, rx, ry, rz], a, v)
+    movel(p[x_c - top, y_c + h, z_c, rx, ry, rz], a, v)
+
+    # --- Right leg up ---
+    movel(p[x_c + top, y_c + h, z_c, rx, ry, rz], a, v)
+    movel(p[x_c + mid, y_c + h*0.5, z_c, rx, ry, rz], a, v)
+    movel(p[x_c + w, y_c, z_c, rx, ry, rz], a, v)
+
+    # --- Cross beams ---
+    movel(p[x_c - mid, y_c + h*0.5, z_c, rx, ry, rz], a, v)
+    movel(p[x_c + mid, y_c + h*0.5, z_c, rx, ry, rz], a, v)
+    movel(p[x_c - w*0.7, y_c + h*0.25, z_c, rx, ry, rz], a, v)
+    movel(p[x_c + w*0.7, y_c + h*0.25, z_c, rx, ry, rz], a, v)
+
+    # --- Back to start ---
+    movel(p[x_c - w, y_c, z_c, rx, ry, rz], a, v)
+end
+
+eiffel_tower_flat()
