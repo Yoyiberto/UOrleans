@@ -1,0 +1,17 @@
+ 9. Which one is the storyline with the highest number of books ?
+CREATE VIEW Books by stary cine AS
+SELECT storylineID, COUNT * AS NBBook
+FROM Books
+GROUP BY storylineID
+
+10.
+COUNT
+
+11.
+
+13. death already
+
+14.
+as n9
+
+15
