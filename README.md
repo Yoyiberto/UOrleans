@@ -1,18 +1,28 @@
-# UOrleans
+# University of Orleans 🎓
 
-Advanced topics in control systems and signal analysis.
+Here is an overview of the courses taken at the University of Orleans. The curriculum was primarily focused on Artificial Intelligence, IoT, and Robotics.
 
-##  Signal Processing
-![Signal Processing](Signal_processing/icon.svg)
+### IOT 🌐
+- Processor architectures 💻
+- Servers & Databases 🗄️
+- Full Stack integration 🔄
+- Smartphones(Elective) 📱
 
-Techniques for analyzing, filtering, and transforming signals in time and frequency domains.
+### 3MA03: Data analytics 📊
+- Signal processing 📡
+- Introduction to I.A. tools 🤖
+- Big data 📉
 
-##  Controllability & Observability
-![Controllability Observability](Controllability_Observability/icon.svg)
+### 3MA04: Robotics 🦾
+- TP Robotics 🛠️
+- Mechanical Transmission/ Transformation ⚙️
+- Robot modeling and identification 📐
+- Mobile Robots platform: study and modelisation 🚙
+- Robotics applied to Medical 🏥
 
-Study of system state controllability and observability in control theory.
-
-##  Data Fusion
-![Data Fusion](Data_Fusion/icon.svg)
-
-Methods for combining data from multiple sources to produce consistent and accurate information.
+### 3MA05: Automation ⚡
+- Practicals Control design applied to Mobility 🚦
+- Identification and control design of numerical systems 🎛️
+- Diagnostic and observer 🔍
+- Non-linear control design 〰️
+- Data fusion 🔗
